@@ -74,6 +74,22 @@ however, the add-on consumes more data.
 
 Valid values: `96`, `160` (default) or `320`.
 
+### Option: `initial_volume`
+
+Initial volume in % from `0`-`100`. Default is `50`
+
+### Option: `volume_ctrl`
+
+Volume control type, `log` (default), `cubic`, `fixed`, `linear`.
+
+### Option: `volume_normalization`
+
+Enables volume normalization for librespot.
+
+### Option: `autoplay`
+
+Autoplay similar songs when your music ends.
+
 ### Option: `username`
 
 **IMPORTANT**: _This requires a Spotify Premium account!_
