@@ -11,22 +11,34 @@ declare username
 
 bashio::log.info 'Starting the Spotify daemon...'
 
-# Bitrate
-options+=(--bitrate $(bashio::config 'bitrate'))
-
 # Device name
 name=$(bashio::config 'name')
 options+=(--name "${name}")
 
+# Bitrate
+options+=(--bitrate $(bashio::config 'bitrate'))
+
+# Initial volume
+options+=(--initial-volume $(bashio::config 'initial_volume'))
+
+# Volume Normalization
+options+=(--enable-volume-normalisation $(bashio::config 'volume_normalization'))
+
+# Volume Control Type
+options+=(--volume-ctrl $(bashio::config 'volume_ctrl'))
+
+# Autoplay
+options+=(--autoplay $(bashio::config 'autoplay'))
+
 # Username / password
 if bashio::config.has_value 'username'; then
-    bashio::config.require.password
+  bashio::config.require.password
 
-    username=$(bashio::config 'username')
-    password=$(bashio::config 'password')
+  username=$(bashio::config 'username')
+  password=$(bashio::config 'password')
 
-    options+=(--username "${username}")
-    options+=(--password "${password}")
+  options+=(--username "${username}")
+  options+=(--password "${password}")
 fi
 
 # Save writes
