@@ -1,6 +1,6 @@
 ---
-name: Spotify Connect
-version: dev
+name: Spotify Connect (unofficial)
+version: 0.13.3-tobokoch
 slug: spotify
 description: Play Spotify music on your Home Assistant device
 url: https://github.com/hassio-addons/addon-spotify-connect
@@ -9,19 +9,29 @@ arch:
   - aarch64
   - amd64
   - armv7
+homeassistant_api: true
 host_network: true
+image: tobokoch/addon-spotify-connect-{arch}
 audio: true
 init: false
 options:
   name: Home Assistant
   bitrate: 160
   initial_volume: 50
+  volume_ctrl: log
+  volume_normalization: true
+  normalization_method: dynamic
   autoplay: true
+  disable_discovery: false
 schema:
-  log_level: list(trace|debug|info|notice|warning|error|fatal)?
   name: str
   bitrate: list(96|160|320)
+  initial_volume: int(0,100)
+  volume_ctrl: list(log|cubic|fixed|linear)
+  volume_normalization: bool?
+  normalization_method: list(basic|dynamic)?
+  autoplay: bool?
   username: str?
   password: password?
-  autoplay: bool
-  initial_volume: match(^([0-9]|[1-9][0-9]|100)$)?
+  disable_discovery: bool?
+  log_level: list(trace|debug|info|notice|warning|error|fatal)?
