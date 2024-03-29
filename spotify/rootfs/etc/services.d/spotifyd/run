@@ -45,6 +45,7 @@ fi
 options+=(--disable-audio-cache)
 # Run PROGRAM set by --onevent before sink is opened and after it is closed.
 options+=(--onevent 'sh /usr/local/bin/event.sh')
+options+=(--emit-sink-events)
 
 # Are we running in debug mode?
 if bashio::debug; then
