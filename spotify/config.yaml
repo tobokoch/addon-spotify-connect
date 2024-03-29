@@ -9,17 +9,18 @@ arch:
   - aarch64
   - amd64
   - armv7
+homeassistant_api: true
 host_network: true
 image: tobokoch/addon-spotify-connect-{arch}
 audio: true
 init: false
 options:
   name: Home Assistant
-  bitrate: 160
+  bitrate: 320
   initial_volume: 50
   volume_ctrl: log
   volume_normalization: true
-  autoplay: false
+  autoplay: true
 schema:
   log_level: list(trace|debug|info|notice|warning|error|fatal)?
   name: str
