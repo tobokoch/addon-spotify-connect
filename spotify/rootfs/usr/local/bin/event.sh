@@ -30,7 +30,7 @@ if [ -n "${STATE}" ]; then
     curl -s \
       -H "Authorization: Bearer ${SUPERVISOR_TOKEN}" \
       -H "Content-Type: application/json" \
-      -XPOST http://supervisor/core/api/states/media_player.spotify_addon_sink_state \
+      -XPOST http://supervisor/core/api/states/sensor.spotify_addon_sink_state \
       -d "{\"state\":\"${SINK_STATUS}\"}"
 
   else
@@ -38,7 +38,7 @@ if [ -n "${STATE}" ]; then
     curl -s \
       -H "Authorization: Bearer ${SUPERVISOR_TOKEN}" \
       -H "Content-Type: application/json" \
-      -XPOST http://supervisor/core/api/states/media_player.spotify_addon \
+      -XPOST http://supervisor/core/api/states/sensor.spotify_addon \
       -d "{\"state\":\"${STATE}\",\"attributes\":{\"track_id\":\"${TRACK_ID}\",\"timestamp\":\"${TIMESTAMP}\"}}"
 
   fi
@@ -48,7 +48,7 @@ if [ -n "${STATE}" ]; then
     curl -s \
       -H "Authorization: Bearer ${SUPERVISOR_TOKEN}" \
       -H "Content-Type: application/json" \
-      -XPOST http://supervisor/core/api/states/media_player.spotify_addon_old_track_id \
+      -XPOST http://supervisor/core/api/states/sensor.spotify_addon_old_track_id \
       -d "{\"state\":\"${OLD_TRACK_ID}\"}"
 
   fi
