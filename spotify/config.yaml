@@ -20,7 +20,7 @@ options:
   initial_volume: 50
   volume_ctrl: log
   volume_normalization: true
-  autoplay: true
+  disable_discovery: false
 schema:
   name: str
   bitrate: list(96|160|320)
@@ -28,6 +28,7 @@ schema:
   volume_ctrl: list(log|cubic|fixed|linear)
   volume_normalization: bool?
   autoplay: bool?
-  log_level: list(trace|debug|info|notice|warning|error|fatal)?
   username: str?
   password: password?
+  disable_discovery: bool?
+  log_level: list(trace|debug|info|notice|warning|error|fatal)?

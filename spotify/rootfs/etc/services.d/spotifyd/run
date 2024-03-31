@@ -21,14 +21,37 @@ options+=(--bitrate $(bashio::config 'bitrate'))
 # Initial volume
 options+=(--initial-volume $(bashio::config 'initial_volume'))
 
-# Volume Normalization
-options+=(--enable-volume-normalisation $(bashio::config 'volume_normalization'))
-
 # Volume Control Type
 options+=(--volume-ctrl $(bashio::config 'volume_ctrl'))
 
+# Volume Normalization
+if bashio::config.true 'volume_normalization'; then
+  options+=(--enable-volume-normalisation)
+fi
+
 # Autoplay
-options+=(--autoplay $(bashio::config 'autoplay'))
+if bashio::config.true 'autoplay'; then
+  options+=(--autoplay)
+fi
+
+# Disable Discovery
+if bashio::config.true 'disable_discovery'; then
+  options+=(--disable-discovery)
+fi
+
+# Save writes
+options+=(--disable-audio-cache)
+
+# Run PROGRAM set by --onevent before sink is opened and after it is closed.
+options+=(--onevent 'sh /usr/local/bin/event.sh')
+options+=(--emit-sink-events)
+
+# Are we running in debug mode?
+if bashio::debug; then
+  options+=(--verbose)
+  bashio::log.info "options w/o username and password"
+  bashio::log.info "${options[@]}"
+fi
 
 # Username / password
 if bashio::config.has_value 'username'; then
@@ -39,17 +62,6 @@ if bashio::config.has_value 'username'; then
 
   options+=(--username "${username}")
   options+=(--password "${password}")
-fi
-
-# Save writes
-options+=(--disable-audio-cache)
-# Run PROGRAM set by --onevent before sink is opened and after it is closed.
-options+=(--onevent 'sh /usr/local/bin/event.sh')
-options+=(--emit-sink-events)
-
-# Are we running in debug mode?
-if bashio::debug; then
-  options+=(--verbose)
 fi
 
 # Run librespot

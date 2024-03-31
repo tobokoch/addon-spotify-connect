@@ -1,9 +1,5 @@
 ---
 configuration:
-  log_level:
-    name: Log level
-    description: >-
-      Controls the level of log details the add-on provides.
   name:
     name: Name
     description: >-
@@ -39,3 +35,11 @@ configuration:
     name: Spotify Password
     description: >-
       The password to log into your Spotify Premium account with.
+  disable_discovery:
+    name: Disable Discovery
+    description: >-
+      Disable zeroconf discovery mode.
+  log_level:
+    name: Log level
+    description: >-
+      Controls the level of log details the add-on provides.
