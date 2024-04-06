@@ -16,8 +16,9 @@ sink)
   STATE="sink"
   ;;
 
-volume_set) ;;
-
+volume_set)
+  STATE="vol"
+  ;;
 *) ;;
 
 esac
@@ -25,6 +26,7 @@ esac
 if [ -n "${STATE}" ]; then
   TIMESTAMP=$(date +%s)
 
+  # sink event
   if [ -n "${SINK_STATUS}" ]; then
 
     curl -s \
@@ -33,6 +35,16 @@ if [ -n "${STATE}" ]; then
       -XPOST http://supervisor/core/api/states/sensor.spotify_addon_sink_state \
       -d "{\"state\":\"${SINK_STATUS}\"}"
 
+  # volume event
+  elif [ -n "${VOLUME}" ]; then
+
+    curl -s \
+      -H "Authorization: Bearer ${SUPERVISOR_TOKEN}" \
+      -H "Content-Type: application/json" \
+      -XPOST http://supervisor/core/api/states/sensor.spotify_addon_volume \
+      -d "{\"state\":\"${VOLUME}\"}"
+
+  # track id event
   else
 
     curl -s \
