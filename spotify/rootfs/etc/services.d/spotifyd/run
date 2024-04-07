@@ -4,8 +4,14 @@
 # Runs librespot
 # ==============================================================================
 declare -a options
-declare bitrate
 declare name
+declare bitrate
+declare initial_volume
+declare volume_ctrl
+declare volume_normalization
+declare normalization_method
+declare autoplay
+declare disable_discovery
 declare password
 declare username
 
@@ -28,6 +34,9 @@ options+=(--volume-ctrl $(bashio::config 'volume_ctrl'))
 if bashio::config.true 'volume_normalization'; then
   options+=(--enable-volume-normalisation)
 fi
+
+# Normalization Method
+options+=(--normalisation-method $(bashio::config 'normalization_method'))
 
 # Autoplay
 if bashio::config.true 'autoplay'; then

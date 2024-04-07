@@ -22,6 +22,10 @@ configuration:
     name: Volume Normalization
     description: >-
       Enables volume normalization for librespot.
+  normalization_method:
+    name: Normalization Method
+    description: >-
+      Specify the normalization method: basic, dynamic (default).
   autoplay:
     name: Autoplay
     description: >-
