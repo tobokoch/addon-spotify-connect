@@ -65,6 +65,10 @@ Volume control type, `log` (default), `cubic`, `fixed`, `linear`.
 
 Enables volume normalization for librespot.
 
+### Option: `normalization_method`
+
+Specify the normalization method, `dynamic` (default), `basic`.
+
 ### Option: `autoplay`
 
 Autoplay similar songs when your music ends.
