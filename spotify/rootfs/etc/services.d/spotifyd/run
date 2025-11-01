@@ -40,7 +40,7 @@ options+=(--normalisation-method $(bashio::config 'normalization_method'))
 
 # Autoplay
 if bashio::config.true 'autoplay'; then
-  options+=(--autoplay)
+  options+=(--autoplay on)
 fi
 
 # Disable Discovery
