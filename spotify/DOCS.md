@@ -35,8 +35,10 @@ Example add-on configuration:
 log_level: info
 name: HomeAssistant
 bitrate: 320
+initial_volume: 50
 username: frenck@example.com
 password: MySpotifyPassword
+autoplay: true
 ```
 
 **Note**: _This is just an example, don't copy and paste it! Create your own!_
@@ -155,7 +157,7 @@ check [the contributor's page][contributors].
 
 MIT License
 
-Copyright (c) 2018-2024 Franck Nijhof
+Copyright (c) 2018-2025 Franck Nijhof
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

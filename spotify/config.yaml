@@ -1,6 +1,6 @@
 ---
 name: Spotify Connect (unofficial)
-version: 0.13.3-tobokoch
+version: 0.16.1-tobokoch
 slug: spotify
 description: Play Spotify music on your Home Assistant device
 url: https://github.com/hassio-addons/addon-spotify-connect
